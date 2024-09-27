@@ -13,8 +13,8 @@ import { applyValidations } from "../validations/apply.validations.js";
 
 const authRouter = Router();
 
-authRouter.post("/sign-in", signInValidation, applyValidations, signInCtrl);
-authRouter.post("/sign-up", signUpValidation, applyValidations, signUpCtrl);
+authRouter.post("/sign-in", validateJwt, signInValidation, applyValidations, signInCtrl);
+authRouter.post("/sign-up", validateJwt, signUpValidation, applyValidations, signUpCtrl);
 authRouter.get("/me", validateJwt, getMeCtrl);
 
 export { authRouter };

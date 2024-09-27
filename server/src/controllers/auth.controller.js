@@ -23,13 +23,19 @@ export const signInCtrl = async (req, res) => {
 
 export const signUpCtrl = async (req, res) => {
   try {
-    // ! Completar la función signUpCtrl
+    const {username, email, password} = req.body;
+
+    createUser(username, email, password);
+    
+    res.json({msg:"Usuario creado con éxito"});
+    return newUser;
+
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
 
-export const signOutCtrl = (_req, res) => {
+export const signOutCtrl = (req, res) => {
   try {
     // ! Completar la función signOutCtrl
     res.status(200).json({ message: "Sign out success" });
